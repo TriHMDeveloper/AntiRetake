@@ -1,0 +1,39 @@
+.bodys {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  width: max-content;
+}
+
+.img {
+  background-image: url("../../assets/images/landing1.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.containers {
+  background-color: var(--color-white);
+  border-radius: 5px;
+  margin-top: 100px;
+}
+
+.header {
+  font-size: 30px;
+  background-color: var(--color-white);
+  color: var(--color-theme);
+}
+
+.form {
+  padding: 30px 50px 50px 30px;
+  width: 400px;
+  height: 500px;
+}
+
+.text {
+  text-align: left;
+  font-size: 14px;
+}

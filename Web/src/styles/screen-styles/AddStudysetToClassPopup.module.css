@@ -1,0 +1,69 @@
+.modal_dialog {
+  margin: 0 !important;
+  min-width: 52vw !important;
+}
+
+.modal_header {
+  height: 60px !important;
+  background-color: var(--color-theme) !important;
+  padding: 0 !important;
+}
+
+.modal_body {
+  background-color: var(--color-background);
+}
+
+.header_text {
+  color: var(--color-white) !important;
+  font-weight: bold;
+}
+
+.StudySet_Card_Component {
+  width: 300px !important;
+}
+
+.container_modal {
+  min-width: 52vw !important;
+}
+
+.content_modal {
+  border: none !important;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: overlay;
+  max-height: 34vh;
+}
+
+.icon {
+  color: var(--color-blur-text);
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.icon_slash {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 365px;
+  right: 0;
+  color: var(--color-blur-text);
+  font-size: 27px;
+  width: 28px;
+  height: 28px;
+}
+
+.icon_slash_container {
+ position: relative;
+}
+
+.new_study_set {
+  white-space: nowrap;
+  width: fit-content !important;
+}
+
+.required_text {
+  color: var(--color-red);
+}

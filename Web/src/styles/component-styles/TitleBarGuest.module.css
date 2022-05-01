@@ -1,0 +1,69 @@
+.navbar {
+  background-color: var(--color-theme);
+}
+
+.tab {
+  color: var(--color-white) !important;
+  font-size: 20px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  display: block;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.nav_brand {
+  color: var(--color-white) !important;
+  font-size: 25px;
+}
+
+.signin {
+  background-color: var(--color-white)!important;
+  color: var(--color-theme)!important;
+  border: 1px var(--color-theme) !important;
+  font-size: 14px;
+  border: none;
+  width: 140px;
+  height: 40px;
+}
+
+.signin:focus, .signup:focus {
+  border-color: var(--color-theme-light) !important;
+  box-shadow: 0 0 0 .25rem var(--color-theme-light) !important;
+}
+
+.signup {
+  background-color: var(--color-black-text)!important;
+  color: var(--color-white)!important;
+  border: 1px var(--color-theme) !important;
+  font-size: 14px;
+  border: none;
+  width: 140px;
+  height: 40px;
+
+}
+
+.signup:hover {
+  opacity: 0.7;
+}
+
+.signin:hover {
+  opacity: 0.7;
+}
+
+.search:focus {
+   text-align: left;
+   border-color: var(--color-theme-light) !important;
+   box-shadow: 0 0 0 .25rem var(--color-theme-light) !important;
+}
+
+.logo{
+  -webkit-backface-visibility: hidden;
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);
+}
+
+.logo:hover{
+  cursor: pointer;
+}

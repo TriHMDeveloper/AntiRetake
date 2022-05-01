@@ -1,0 +1,25 @@
+.book_icon {
+  color: var(--color-theme);
+}
+
+.dropdown_accessModifier {
+  border: 1px solid var(--color-theme);
+  padding: 2px 8px 2px 8px;
+  height: fit-content;
+}
+
+.class_icon{
+  color: var(--color-theme);
+  font-size: 65px;
+  height: 70px;
+  width: 100px;
+}
+
+.copy_icon {
+  border: none;
+  color: var(--color-theme);
+}
+
+.icon{
+  color: var(--color-theme);
+}

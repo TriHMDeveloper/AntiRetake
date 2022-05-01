@@ -1,0 +1,9 @@
+.full_width_modal {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.modal_body{
+  padding: 25px;
+}

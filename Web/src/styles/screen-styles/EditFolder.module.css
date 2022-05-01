@@ -1,0 +1,20 @@
+.required_text {
+  color: var(--color-red);
+}
+
+.container_90 {
+ width: 90%;
+}
+
+
+.bold_text {
+  font-weight: 500;
+}
+
+.no_border:focus {
+  border-bottom: 1px solid var(--color-theme) !important;
+  outline: none !important;
+}
+.error{
+  color: var(--color-red);
+}

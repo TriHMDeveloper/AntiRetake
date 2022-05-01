@@ -1,0 +1,73 @@
+.text_theme {
+  color: var(--color-theme);
+  font-weight: 500;
+}
+
+.user_card {
+  border-bottom: 1px solid var(--color-theme);
+}
+
+.trash_icon {
+  display: flex;
+  height: 30px !important;
+  width: 30px !important;
+  border: 2px solid var(--color-theme) !important;
+  font-size: 19px;
+  border-radius: 3px;
+}
+
+.angle_down_icon {
+  color: var(--color-theme);
+}
+
+.dropdown-toggle::after {
+  color: var(--color-theme) !important;
+}
+.dropdown_toggle::after {
+  content: none !important;
+  background-color: none !important;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.dropdown_item:hover{
+  background-color: var(--color-theme) !important;
+  color: var(--color-white) !important;
+  margin: 0 !important;
+}
+
+.dropdown_item{
+  height: 50px !important;
+  padding-top: 11px !important;
+  padding-bottom: 10px !important;
+}
+
+.no_padding{
+  padding: 0 !important;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.invite_input {
+  width: 100%;
+}
+
+.invite_btn {
+  height: 40px;
+}
+
+.access_day {
+  vertical-align: text-bottom !important;
+}
+
+.word_wrap_break {
+  word-wrap: break-word;
+}
+
+.short_text{
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  display: block;
+}

@@ -1,0 +1,27 @@
+.term_card_border{
+    margin-top: 10px;
+    padding: 3px 0px 3px 0px;
+}
+
+pre{
+    text-align: left;
+}
+
+.definition_border{
+    border-left: 1pt solid var(--color-blur-text);
+    min-height: 100px;
+}
+
+.btn_save_flashcard{
+    background-color: var(--color-white);
+    border: none;
+    color: var(--color-theme) !important;
+}
+
+@media (max-width: 767px) {
+    .definition_border{
+        border-left: 0px;
+        border-top: 1pt solid var(--color-blur-text);
+        min-height: 100px;
+    }
+}

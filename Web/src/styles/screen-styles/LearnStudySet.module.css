@@ -1,0 +1,32 @@
+.no_btn{
+    border: none;
+    background-color: var(--color-white);
+}
+
+.option_btn:focus{
+	box-shadow: none !important;
+    border-color: none !important;
+}
+
+.checkbox_btn {
+    background-color: var(--color-white) !important;
+    color: var(--color-theme) !important;
+}
+
+.checkbox_btn:hover{
+    background-color: var(--color-theme) !important;
+    color: var(--color-white) !important;
+
+}
+
+.checked_btn{
+    background-color: var(--color-theme) !important;
+    box-shadow: none !important;
+    color: var(--color-white) !important;
+}
+
+.checkbox_btn:focus{
+    background-color: var(--color-theme) !important;
+    box-shadow: none !important;
+    color: var(--color-white);
+}

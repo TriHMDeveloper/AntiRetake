@@ -1,0 +1,12 @@
+
+.word_wrap_break {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-line;
+}
+
+.Noti_type_icon {
+  position: absolute;
+  top: 28px;
+  left: 40px;
+}

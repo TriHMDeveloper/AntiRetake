@@ -1,0 +1,32 @@
+
+
+.dropdown_toggle::after {
+  content: none !important;
+  background-color: none !important;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.dropdown_item:hover{
+  background-color: var(--color-theme) !important;
+  color: var(--color-white) !important;
+  margin: 0 !important;
+}
+
+.dropdown_item{
+  height: 50px !important;
+  padding-top: 11px !important;
+  padding-bottom: 10px !important;
+}
+
+.no_padding{
+  padding: 0 !important;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.text_theme{
+  color: var(--color-theme);
+  font-weight: 500;
+}

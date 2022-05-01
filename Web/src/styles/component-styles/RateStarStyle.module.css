@@ -1,0 +1,26 @@
+
+.star_rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.icon_hovered, .icon_clicked {
+  color: var(--color-star);
+}
+
+
+.modal_content{
+  border: none !important;
+}
+
+.vote_head {
+  border: none;
+  background-color: var(--color-theme) !important;
+}
+
+.header_text {
+  color: var(--color-white) !important;
+  font-weight: bold;
+}

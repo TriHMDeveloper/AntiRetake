@@ -1,0 +1,20 @@
+.icon_clone {
+  color: var(--color-theme);
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.clicked_card {
+  background-color: var(--color-theme) !important;
+}
+
+.theme_color {
+  color: var(--color-theme);
+}
+
+.word_wrap_break {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

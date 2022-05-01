@@ -1,0 +1,57 @@
+.accept-button {
+    background-color: var(--color-theme) !important;
+    border: 1px solid var(--color-theme) !important;
+    width: 100px;
+    padding: 5px;
+}
+
+.accept-button:hover {
+    background-color: var(--color-theme);
+    opacity: 0.6;
+}
+
+.accept-button:focus {
+    background-color: var(--color-theme) !important;
+    border-color: var(--color-theme-light) !important;
+}
+
+.decline-button {
+    background-color: var(--color-white) !important;
+    color: var(--color-theme) !important;
+    border: 1px solid var(--color-theme) !important;
+    width: 100px;
+    padding: 5px;
+}
+
+.decline-button:hover {
+    background-color: var(--color-white) !important;
+    opacity: 0.6;
+    color: var(--color-theme-light);
+}
+
+.decline-button:focus {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-theme-light) !important;
+    color: var(--color-theme);
+}
+
+.icon-button{
+    width: 40px;
+    height: 40px;
+    border: solid 2px var(--color-theme);
+    color:  var(--color-theme);
+    background-color: #F6F7FB;
+    border-radius: 50%;
+}
+
+.icon-button:hover{
+    border-color: none;
+    color:  var(--color-white);
+    background-color: var(--color-theme);
+    border-radius: 50%;
+}
+
+.icon-button-size{
+    width: 20px;
+    height: 20px;
+}

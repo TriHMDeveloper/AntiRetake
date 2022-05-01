@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  frontend:
+    image: registry.gitlab.com/antiretake/anti-retake/front-end/web:latest
+    volumes:
+      - ./:/app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    restart: unless-stopped

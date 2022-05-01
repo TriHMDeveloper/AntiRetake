@@ -1,0 +1,25 @@
+.term_input {
+  border-radius: 0 !important;
+  border: none !important;
+  border-bottom: 1px solid var(--color-black) !important;
+  box-shadow: none !important;
+}
+
+.study_set_card {
+  border: 1px solid var(--color-theme);
+  min-width: 100% !important;
+}
+
+.trash_icon {
+  display: flex;
+  height: 30px !important;
+  width: 30px !important;
+  border: 2px solid var(--color-theme) !important;
+  font-size: 19px;
+  border-radius: 3px;
+}
+
+.trash_icon:hover {
+  background-color: var(--color-theme) !important;
+  opacity: 0.6;
+}

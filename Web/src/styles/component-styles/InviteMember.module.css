@@ -1,0 +1,28 @@
+
+.modal_dialog {
+  margin: 0 !important;
+  min-width: 40vw !important;
+}
+
+.modal_header {
+  height: 50px;
+  background-color: var(--color-theme);
+  padding: 0 !important;
+}
+
+.tutorial {
+  color: var(--color-theme);
+}
+
+.container_modal {
+  min-width: 40vw !important;
+}
+
+.content_modal {
+  border: none !important;
+}
+
+.header_text {
+  color: var(--color-white) !important;
+  font-weight: bold;
+}

@@ -1,0 +1,151 @@
+.question_card_border{
+    border-radius: 8px;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-white);
+}
+
+.text_style{
+    text-align: left;
+    align-items: center;
+    padding: 0;
+}
+
+.font_small {
+    font-size: small;
+}
+
+.link_gray_style, .link_gray_style:focus, .link_gray_style:active {
+    text-decoration: none !important;
+    color: var(--color-blur-text) !important;
+}
+
+.link_gray_style:hover{
+    text-decoration: none !important;
+    color: #636262 !important;
+}
+
+.link_black_style{
+    color: var(--color-black-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link_black_style:hover{
+    text-decoration: underline;
+    color: var(--color-black-text) !important;
+    font-weight: 500;
+}
+
+.comment_bar{
+    display: inline-block;
+}
+
+.btn_color{
+    background-color: var(--color-theme) !important; 
+}
+
+.btn_color:hover{
+    background-color: var(--color-theme-dark) !important;
+}   
+
+.btn_color:focus{
+    background-color: var(--color-theme) !important;
+    border-color: var(--color-theme-light) !important;
+}
+
+.color_button{
+    color: var(--color-theme) !important;
+}
+
+.short_text{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    display: block;
+}
+
+.no_btn{
+    border: none;
+    background-color: var(--color-white);
+}
+
+.no_btn2{
+    border: none;
+    background-color: var(--color-white);
+    width: 5% !important;
+}
+
+.my_textarea{
+    resize : none;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cedad5 !important ;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.my_textarea:focus{
+	box-shadow: 0 0 0 0.10rem var(--color-theme-light);
+    border-color: none !important;
+}
+
+.my_textarea:focus-visible{
+    outline: none !important;
+}
+
+.custom_hr{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.text_size_small{
+    font-size: 10pt;
+}
+
+
+.dropdown_toggle::after {
+    content: none !important;
+    background-color: none !important;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.dropdown_item:hover{
+    background-color: var(--color-theme) !important;
+    color: var(--color-white) !important;
+    margin: 0 !important;
+}
+
+.dropdown_item{
+    height: 50px !important;
+    padding-top: 11px !important;
+    padding-bottom: 10px !important;
+}
+
+.no_padding{
+    padding: 0 !important;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.error{
+    color: red;
+}
+
+.text_theme{
+    color: var(--color-theme);
+    font-weight: 500;
+}
+
+.container_markdown :global(img[alt])  {
+    max-width: 40% !important;
+    height: auto !important;
+  }

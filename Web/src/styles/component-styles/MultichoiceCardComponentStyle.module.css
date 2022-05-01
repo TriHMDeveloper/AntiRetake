@@ -1,0 +1,44 @@
+.multichoice_button{
+    border-radius: 5px;
+    border: solid 2px var(--color-theme);
+    color: var(--color-black-text);
+}
+
+.multichoice_button:hover{
+    border-color: none;
+    background-color: var(--color-theme);
+    color: var(--color-white);
+}
+
+.correct {
+    border-radius: 5px;
+    border: solid 2px var(--color-green);
+    color: var(--color-black-text);
+    background-color: #c8ecdb !important;
+}
+
+.wrong{
+    border-radius: 5px;
+    border: solid 2px var(--color-red);
+    color: var(--color-black-text);
+}
+
+.no_choice{
+    border-radius: 5px;
+    border: solid 2px var(--color-theme);
+    color: var(--color-black-text);
+    opacity: 60%;
+}
+
+.result_bar{
+    position: fixed !important;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding-bottom: 0 !important;
+}
+
+.custom_progressbar{
+    background-color: var(--color-theme) !important;
+}

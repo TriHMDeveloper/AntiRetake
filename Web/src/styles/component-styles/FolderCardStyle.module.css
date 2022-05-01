@@ -1,0 +1,44 @@
+.icon_folder {
+  color: var(--color-theme);
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.clicked_card {
+  background-color: var(--color-theme) !important;
+}
+
+.theme_color {
+  color: var(--color-theme);
+}
+
+.folder_name {
+  height: 26px !important;
+}
+
+.word_wrap_break {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dropdown_toggle::after {
+  content: none !important;
+  background-color: none !important;
+}
+
+.dropdown_toggle{
+  position: absolute;
+  top: -11px;
+  right: -10px;
+  padding: 2px 7px 2px 5px !important;
+}
+
+.dropdown_toggle:focus{
+  box-shadow: none !important;
+}
+
+.remove_icon:hover{
+  color: var(--color-black-text);
+}

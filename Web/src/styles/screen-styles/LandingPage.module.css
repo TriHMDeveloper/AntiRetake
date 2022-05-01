@@ -1,0 +1,28 @@
+.text {
+  background-size: 100% 100%;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.25;
+  padding: 2rem 1rem;
+}
+
+.main_image{
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+.sub_image{
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  /* min-height: 400px; */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}

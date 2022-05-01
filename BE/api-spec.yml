@@ -1,0 +1,2135 @@
+openapi: "3.0.2"
+info:
+  title: Anti Retake API
+  version: '1.2'
+servers:
+  - url: https://antiretake.xyz/api
+paths:
+  /auth/add-aser:
+    post:
+      summary: Add an user to mongodb when signup, first time login with google and facebook
+      tags:
+        - Authentication
+      operationId: API-001
+      security: []
+      responses:
+        "201":
+          description: Add User Successful.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: ar_Auth=authcookie; Path=/; HttpOnly
+        "401":
+          description: Wrong credentials.
+
+  /currentuser/recent:
+    get:
+      summary: Get recent study sets of current user.
+      tags:
+        - Profile
+      operationId: API-010
+      responses:
+        "200":
+          description: Recent study set list of current user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecentStudySetList"
+
+  /users/{userId}:
+    get:
+      summary: Get user info by ID.
+      tags:
+        - Profile
+      operationId: API-011
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: User info.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserInfo"
+
+  /users/{userId}/studysets:
+    get:
+      summary: Get study set list of a user by UserID.
+      tags:
+        - Profile
+      operationId: API-012
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Study set list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetList"
+
+  /users/{userId}/folders:
+    get:
+      summary: Get folder list of a user by UserID.
+      tags:
+        - Profile
+      operationId: API-013
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Folder list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FolderList"
+
+  /users/folders/personal:
+    get:
+      summary: Get personal folder list of Current User.
+      tags:
+        - Profile
+      operationId: API-071
+      parameters:
+        - in: query
+          name: searchText
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: limit
+          required: true
+          schema:
+            type: number
+        - in: query
+          name: classId
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Folder list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FolderList"
+
+  /users/sets/personal:
+    get:
+      summary: Get personal studyset list of Current User.
+      tags:
+        - Profile
+      operationId: API-072
+      parameters:
+        - in: query
+          name: searchText
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: limit
+          required: true
+          schema:
+            type: number
+        - in: query
+          name: classId
+          schema:
+            type: string
+        - in: query
+          name: folderId
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Study set list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetList"
+
+  /users/{userId}/classes:
+    get:
+      summary: Get class list of a user by UserID.
+      tags:
+        - Profile
+      operationId: API-014
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Class list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClassList"
+
+  /users/{userId}/questions:
+    get:
+      summary: Get question list of a user by UserID.
+      tags:
+        - Profile
+      operationId: API-016
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Question list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuestionList"
+
+  /profile:
+    get:
+      summary: Get current user profile info
+      tags:
+        - Profile
+      operationId: API-070
+      responses:
+        "200":
+          description: UserInfo.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserInfo"
+    put:
+      summary: Edit Username or Avatar Url
+      tags:
+        - Profile
+      operationId: API-069
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserInfo"
+      responses:
+        "200":
+          description: Successfully
+
+  /sets/{id}/visit:
+    put:
+      summary: Set visited study set by of current user.
+      tags:
+        - Profile
+      operationId: API-075
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successfully.
+
+  /sets/{id}/learn/reset:
+    post:
+      summary: Reset learn study set by of current user.
+      tags:
+        - Profile
+      operationId: API-073
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Successfully.
+
+  /sets/{id}/learn:
+    post:
+      summary: Set learned study set by of current user.
+      tags:
+        - Profile
+      operationId: API-074
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Successfully.
+
+  /common/schools:
+    get:
+      summary: Get school list.
+      tags:
+        - Common
+      operationId: API-015
+      parameters:
+        - in: query
+          name: searchText
+          schema:
+            type: string
+      responses:
+        "200":
+          description: School list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SchoolList"
+
+  /common/textbooks:
+    get:
+      summary: Get textbook list.
+      tags:
+        - Common
+      operationId: API-067
+      parameters:
+        - in: query
+          name: searchText
+          schema:
+            type: string
+      responses:
+        "200":
+          description: School list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TextbookList"
+
+  /common/subjects:
+    get:
+      summary: Get subject list.
+      tags:
+        - Common
+      operationId: API-068
+      parameters:
+        - in: query
+          name: searchText
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Subject list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubjectList"
+
+  /search/studysets:
+    get:
+      summary: Get study set list of search by keyword, filter and sorted.
+      tags:
+        - Search
+      operationId: API-017
+      parameters:
+        - in: query
+          name: searchText
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: textbooks
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: subjects
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: sortedBy
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Study set list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetList"
+
+  /search/classes:
+    get:
+      summary: Get class list of search by keyword, filter and sorted.
+      tags:
+        - Search
+      operationId: API-018
+      parameters:
+        - in: query
+          name: searchText
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: schools
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: sortedBy
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Class list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClassList"
+
+  /search/users:
+    get:
+      summary: Get user list of search by keyword.
+      tags:
+        - Search
+      operationId: API-019
+      parameters:
+        - in: query
+          name: searchText
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Class list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserList"
+
+  /search/questions:
+    get:
+      summary: Get question list of search by keyword, filter and sorted.
+      tags:
+        - Search
+      operationId: API-020
+      parameters:
+        - in: query
+          name: searchText
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: textbooks
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: subjects
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: schools
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: sortedBy
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Question list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuestionList"
+
+  /sets/{studySetId}/info:
+    get:
+      summary: Get study set info by study set ID.
+      tags:
+        - Study Set
+      operationId: API-021
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Study set info.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetInfo"
+
+  /sets/{studySetId}/flashcards:
+    get:
+      summary: Get all flashcards of study set by study set ID.
+      tags:
+        - Study Set
+      operationId: API-022
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: limit
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: All Flashcards.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlashCardList"
+
+  /sets/{studySetId}/recommendation:
+    get:
+      summary: Get recommendation study sets by study set ID.
+      tags:
+        - Study Set
+      operationId: API-023
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Recommendation study sets.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetList"
+
+  /sets/{studySetId}/rate:
+    post:
+      summary: Rate study set by study set Id.
+      tags:
+        - Study Set
+      operationId: API-024
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: rate
+          schema:
+            type: number
+      responses:
+        "201":
+          description: Study set rating.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rating"
+
+  /sets/{studySetId}:
+    delete:
+      summary: Delete study set by study set Id.
+      tags:
+        - Study Set
+      operationId: API-025
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Study set deleted successful.
+
+    put:
+      summary: Edit a study set.
+      tags:
+        - Study Set
+      operationId: API-027
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudySetEdit"
+      responses:
+        "201":
+          description: Study set updated successful.
+
+  /sets:
+    post:
+      summary: Create a study set.
+      tags:
+        - Study Set
+      operationId: API-026
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudySetCreate"
+      responses:
+        "201":
+          description: Study set created successful.
+
+  /sets/{studySetId}/save:
+    post:
+      summary: Save study set to folder.
+      tags:
+        - Study Set
+      operationId: API-031
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: folderId
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Save study set to folder successful.
+
+  /sets/flashcards/{flashcardId}/save:
+    post:
+      summary: Save flashcard to study set.
+      tags:
+        - Study Set
+      operationId: API-032
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: flashcardId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: studySetId
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Save flashcard to study set successful.
+
+  /classes/{classId}/info:
+    get:
+      summary: Get class info by class ID.
+      tags:
+        - Class
+      operationId: API-033
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Class info.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClassInfo"
+
+  /classes/{classId}/studysets:
+    get:
+      summary: Get study sets in class by class ID.
+      tags:
+        - Class
+      operationId: API-034
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Study sets of class.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetList"
+
+  /classes/{classId}/folders:
+    get:
+      summary: Get folders in class by class ID.
+      tags:
+        - Class
+      operationId: API-035
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Folders of class.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FolderList"
+
+  /classes/{classId}/members:
+    get:
+      summary: Get members in class by class ID.
+      tags:
+        - Class
+      operationId: API-036
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Members of class.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MemberList"
+
+  /classes/{classId}/requests:
+    get:
+      summary: Get join requests in class by class ID.
+      tags:
+        - Class
+      operationId: API-037
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Join requests of class.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JoinRequestList"
+    post:
+      summary: Send join request.
+      tags:
+        - Class
+      operationId: API-050
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JoinRequest"
+      responses:
+        "201":
+          description: Send join request successful.
+
+  /classes:
+    post:
+      summary: Create a class.
+      tags:
+        - Class
+      operationId: API-038
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClassCreate"
+      responses:
+        "201":
+          description: Class created successful.
+
+  /classes/{classId}:
+    delete:
+      summary: Delete class by class Id.
+      tags:
+        - Class
+      operationId: API-040
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Class deleted successful.
+
+    put:
+      summary: Edit a class.
+      tags:
+        - Class
+      operationId: API-039
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClassEdit"
+      responses:
+        "201":
+          description: Class updated successful.
+
+  /classes/{classId}/add-study-set-to-class:
+    post:
+      summary: Add study set to class.
+      tags:
+        - Class
+      operationId: API-041
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Add study set to class successful.
+
+  /classes/{classId}/folders/add:
+    post:
+      summary: Add folder to class.
+      tags:
+        - Class
+      operationId: API-042
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: folderId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Add folder to class successful.
+
+  /classes/{classId}/members/invite:
+    post:
+      summary: Invite member to class.
+      tags:
+        - Class
+      operationId: API-043
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: memberId
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Invite to class successful.
+
+    get:
+      summary: List of members to invite.
+      tags:
+        - Class
+      operationId: API-044
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: searchText
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of users to invite.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserList"
+
+  /classes/{classId}/members/{memberId}:
+    put:
+      summary: Edit member role.
+      tags:
+        - Class
+      operationId: API-045
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: memberId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: role
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Edit member role successful.
+
+    delete:
+      summary: Delete member in class.
+      tags:
+        - Class
+      operationId: API-046
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: memberId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Delete member successful.
+
+  /classes/{classId}/requests/{requestId}:
+    put:
+      summary: Response join request.
+      tags:
+        - Class
+      operationId: API-047
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: response
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Response join request successful.
+
+  /classes/{classId}/folders/{folderId}:
+    delete:
+      summary: Remove Folder in Class.
+      tags:
+        - Class
+      operationId: API-078
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Remove Folder successful.
+
+  /classes/{classId}/sets/{studySetId}:
+    delete:
+      summary: Remove Study Set in Class.
+      tags:
+        - Class
+      operationId: API-079
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Remove Study Set successful.
+
+  /classes/{classId}/leave:
+    delete:
+      summary: Leave a class.
+      tags:
+        - Class
+      operationId: API-048
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Leave class successful.
+
+
+  /classes/{classId}/accept:
+    post:
+      summary: Accept join invitation.
+      tags:
+        - Class
+      operationId: API-049
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Accept join invitation successful.
+
+  /folders/{folderId}/info:
+    get:
+      summary: Get folder info by folder ID.
+      tags:
+        - Folder
+      operationId: API-051
+      parameters:
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Folder info.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FolderInfo"
+
+  /folders/{folderId}/studysets:
+    get:
+      summary: Get study sets in folder by folder ID.
+      tags:
+        - Folder
+      operationId: API-052
+      parameters:
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Study sets of folder.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudySetList"
+
+  /folders:
+    post:
+      summary: Create a folder.
+      tags:
+        - Folder
+      operationId: API-053
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FolderCreate"
+      responses:
+        "201":
+          description: Folder created successful.
+
+  /folders/{folderId}/add-study-set-to-folder:
+    post:
+      summary: Add study set to folder.
+      tags:
+        - Folder
+      operationId: API-076
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: studySetId
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Add study set to folder successful.
+
+  /folders/{folderId}/sets/{studySetId}:
+    delete:
+      summary: Remove Study Set in Folder.
+      tags:
+        - Folder
+      operationId: API-077
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: studySetId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Remove Study Set successful.
+
+  /folders/{folderId}:
+    delete:
+      summary: Delete folder by folder Id.
+      tags:
+        - Folder
+      operationId: API-055
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Folder deleted successful.
+
+    put:
+      summary: Edit a folder.
+      tags:
+        - Folder
+      operationId: API-054
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: folderId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FolderEdit"
+      responses:
+        "201":
+          description: Folder updated successful.
+
+  /forum/questions/{questionId}/:
+    get:
+      summary: Get question by question Id.
+      tags:
+        - Forum
+      operationId: API-056
+      parameters:
+        - in: path
+          name: questionId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: question.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Question"
+
+    put:
+      summary: Edit a question.
+      tags:
+        - Forum
+      operationId: API-064
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: questionId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuestionEdit"
+      responses:
+        "201":
+          description: Edit a question.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Question"
+
+    delete:
+      summary: Delete question by quesiton Id.
+      tags:
+        - Forum
+      operationId: API-062
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: questionId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Question deleted successful.
+
+  /forum/questions/{questionsId}/voting:
+    post:
+      summary: Up/down vote question.
+      tags:
+        - Forum
+      operationId: API-057
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: questionsId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: vote
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Up/down vote question.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Voting"
+
+  /forum/comments/{commentId}/voting:
+    post:
+      summary: Up/down vote comment.
+      tags:
+        - Forum
+      operationId: API-058
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: commentId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: vote
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Up/down vote comment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Voting"
+
+  /forum/comments:
+    post:
+      summary: Create a comment.
+      tags:
+        - Forum
+      operationId: API-059
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentCreate"
+      responses:
+        "201":
+          description: Create a comment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Comment"
+
+  /forum/comments/{commentId}:
+    put:
+      summary: Edit a comment.
+      tags:
+        - Forum
+      operationId: API-060
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: commentId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentEdit"
+      responses:
+        "201":
+          description: Edit a comment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Comment"
+
+    delete:
+      summary: Delete comment by comment Id.
+      tags:
+        - Forum
+      operationId: API-061
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: commentId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Comment deleted successful.
+
+  /forum/questions:
+    post:
+      summary: Create a question.
+      tags:
+        - Forum
+      operationId: API-063
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuestionCreate"
+      responses:
+        "201":
+          description: Create a question.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Question"
+
+  /common/tags:
+    post:
+      summary: Get tags list.
+      tags:
+        - Common
+      operationId: API-065
+      requestBody:
+        description: A list of tags
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Tags"
+      responses:
+        "200":
+          description: Tag list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tags"
+
+  /forum/questions/{questionId}/vote:
+    delete:
+      summary: Delete vote question.
+      tags:
+        - Forum
+      operationId: API-080
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: questionId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Delete successfully.
+
+  /forum/questions/{questionId}/comments/{commentId}/vote:
+    delete:
+      summary: Delete vote comment.
+      tags:
+        - Forum
+      operationId: API-081
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: questionId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: commentId
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Delete successfully.
+
+components:
+  schemas:
+
+    RecentStudySetCardInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        lastVisitedTime:
+          type: string
+        createdTime:
+          type: string
+        numOfTerms:
+          type: number
+        rating:
+          type: number
+        ownerName:
+          type: string
+        ownerAvaUrl:
+          type: string
+        textbook:
+          type: string
+        subjects:
+          type: array
+          items:
+            type: string
+
+    RecentStudySetList:
+      type: object
+      properties:
+        thisWeek:
+          type: array
+          items:
+            $ref: "#/components/schemas/RecentStudySetCardInfo"
+        lastWeek:
+          type: array
+          items:
+            $ref: "#/components/schemas/RecentStudySetCardInfo"
+        older:
+          type: array
+          items:
+            $ref: "#/components/schemas/RecentStudySetCardInfo"
+
+    StudySetCardInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        createdTime:
+          type: string
+        numOfTerms:
+          type: number
+        rating:
+          type: number
+        ownerName:
+          type: string
+        ownerAvaUrl:
+          type: string
+        textbook:
+          type: string
+        subjects:
+          type: array
+          items:
+            type: string
+
+    StudySetList:
+      type: array
+      items:
+        $ref: "#/components/schemas/StudySetCardInfo"
+
+    UserInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        avaUrl:
+          type: string
+
+    FolderCardInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        numOfSets:
+          type: number
+        name:
+          type: string
+        createdTime:
+          type: string
+
+    FolderList:
+      type: array
+      items:
+        $ref: "#/components/schemas/FolderCardInfo"
+
+    ClassCardInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        school:
+          type: string
+        createdTime:
+          type: string
+        numOfSets:
+          type: number
+        numOfMembers:
+          type: number
+
+    ClassList:
+      type: array
+      items:
+        $ref: "#/components/schemas/ClassCardInfo"
+
+    SchoolInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        country:
+          type: string
+
+    SchoolList:
+      type: array
+      items:
+        $ref: "#/components/schemas/SchoolInfo"
+
+    TextbookInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    TextbookList:
+      type: array
+      items:
+        $ref: "#/components/schemas/TextbookInfo"
+
+    SubjectInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    SubjectList:
+      type: array
+      items:
+        $ref: "#/components/schemas/SubjectInfo"
+
+    QuestionCardInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        createdTime:
+          type: string
+        ownerAvaUrl:
+          type: string
+        ownerName:
+          type: string
+        content:
+          type: string
+        numOfUpvotes:
+          type: number
+        numOfDownvotes:
+          type: number
+        numOfComments:
+          type: number
+        textbooks:
+          type: array
+          items:
+            type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        schools:
+          type: array
+          items:
+            type: string
+
+    QuestionList:
+      type: array
+      items:
+        $ref: "#/components/schemas/QuestionCardInfo"
+
+    UserCardInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        avaUrl:
+          type: string
+        numOfClasses:
+          type: number
+        numOfSets:
+          type: number
+
+    UserList:
+      type: array
+      items:
+        $ref: "#/components/schemas/UserCardInfo"
+
+    StudySetInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        createdTime:
+          type: string
+        numOfTerms:
+          type: number
+        rating:
+          type: number
+        numOfRate:
+          type: number
+        ownerId:
+          type: string
+        ownerName:
+          type: string
+        textbook:
+          type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        accessModifier:
+          type: string
+
+    FlashCard:
+      type: object
+      properties:
+        id:
+          type: string
+        term:
+          type: string
+        definition:
+          type: string
+        index:
+          type: number
+
+    FlashCardList:
+      type: array
+      items:
+        $ref: "#/components/schemas/FlashCard"
+
+    Rating:
+      type: number
+
+    Voting:
+      type: number
+
+    StudySetEdit:
+      type: object
+      properties:
+        name:
+          type: string
+        textbook:
+          type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        accessModifier:
+          type: string
+        flashcards:
+          type: array
+          items:
+            $ref: "#/components/schemas/FlashCard"
+
+    StudySetCreate:
+      type: object
+      properties:
+        name:
+          type: string
+        textbook:
+          type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        accessModifier:
+          type: string
+        flashcards:
+          type: array
+          items:
+            $ref: "#/components/schemas/FlashCard"
+
+    StudySetLearnQuestion:
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        answers:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: number
+              content:
+                type: string
+              isCorrect:
+                type: boolean
+        index:
+          type: number
+
+    StudySetLearnQuestionList:
+      type: array
+      items:
+        $ref: "#/components/schemas/StudySetLearnQuestion"
+
+    ClassInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        inviteLink:
+          type: string
+        school:
+          type: string
+        ownerId:
+          type: string
+        ownerName:
+          type: string
+        numOfSets:
+          type: number
+        numOfMembers:
+          type: number
+        accessModifier:
+          type: string
+
+    MemberInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        avaUrl:
+          type: string
+        accessDay:
+          type: string
+        role:
+          type: string
+
+    MemberList:
+      type: array
+      items:
+        $ref: "#/components/schemas/MemberInfo"
+
+    JoinRequestCard:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        avaUrl:
+          type: string
+        sendTime:
+          type: string
+        message:
+          type: string
+
+    JoinRequestList:
+      type: array
+      items:
+        $ref: "#/components/schemas/JoinRequestCard"
+
+    JoinRequest:
+      type: object
+      properties:
+        message:
+          type: string
+
+    ClassCreate:
+      type: object
+      properties:
+        name:
+          type: string
+        school:
+          type: string
+        description:
+          type: string
+        accessModifier:
+          type: string
+
+    ClassEdit:
+      type: object
+      properties:
+        name:
+          type: string
+        school:
+          type: string
+        description:
+          type: string
+        accessModifier:
+          type: string
+
+    FolderInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        ownerId:
+          type: string
+        ownerName:
+          type: string
+        description:
+          type: string
+
+    FolderCreate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+    FolderEdit:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+    Comment:
+      type: object
+      properties:
+        id:
+          type: string
+        ownerId:
+          type: string
+        ownerName:
+          type: string
+        ownerAva:
+          type: string
+        createdTime:
+          type: string
+        numOfUpvotes:
+          type: number
+        numOfDownvotes:
+          type: number
+        listOfVotes:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vote"
+        content:
+          type: string
+        listOfComments:
+          type: array
+          items:
+            $ref: "#/components/schemas/Comment"
+        replyToQuestion:
+          type: string
+        replyToComment:
+          type: string
+
+    Vote:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        votedTime:
+          type: string
+        type:
+          type: string
+
+    Question:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        createdTime:
+          type: string
+        ownerId:
+          type: string
+        ownerAvaUrl:
+          type: string
+        ownerName:
+          type: string
+        content:
+          type: string
+        numOfUpvotes:
+          type: number
+        numOfDownvotes:
+          type: number
+        listOfVotes:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vote"
+        numOfComments:
+          type: number
+        textbooks:
+          type: array
+          items:
+            type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        schools:
+          type: array
+          items:
+            type: string
+        comments:
+          type: array
+          items:
+            $ref: "#/components/schemas/Comment"
+
+    CommentCreate:
+      type: object
+      properties:
+        content:
+          type: string
+        replyTo:
+          type: string
+
+    CommentEdit:
+      type: object
+      properties:
+        content:
+          type: string
+
+    QuestionEdit:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        textbooks:
+          type: array
+          items:
+            type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        schools:
+          type: array
+          items:
+            type: string
+
+    QuestionCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        textbooks:
+          type: array
+          items:
+            type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        schools:
+          type: array
+          items:
+            type: string
+
+    Tags:
+      type: object
+      properties:
+        textbooks:
+          type: array
+          items:
+            type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        schools:
+          type: array
+          items:
+            type: string
+
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: ar_Auth

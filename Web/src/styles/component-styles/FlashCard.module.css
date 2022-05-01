@@ -1,0 +1,9 @@
+.flip_card {
+    height: 60vh;
+}
+
+@media (max-height: 500px) {
+    .flip_card {
+        height: 100vh;
+    }
+}

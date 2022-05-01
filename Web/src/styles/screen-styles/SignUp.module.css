@@ -1,0 +1,130 @@
+.bodys {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  width: max-content;
+}
+
+.img {
+  background-image: url("../../assets/images/landing1.jpg");
+  background-size: cover;
+  min-height: 94vh;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.containers {
+  background-color: var(--color-white);
+  border-radius: 5px;
+}
+
+.header {
+  margin-left: 20px;
+  background-color: var(--color-white);
+  padding: 20px;
+  color: var(--color-theme);
+}
+
+.form {
+  padding: 30px 50px 20px 30px;
+  width: 400px;
+
+}
+
+.form_control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.input {
+  border: 2px solid var(--color-theme-light);
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px 10px 10px 40px;
+  width: 108%;
+}
+
+.input:focus {
+  outline: 0;
+  border-color: var(--color-blur-text);
+}
+
+.signup {
+  display: block;
+  color: var(--color-white);
+  background-color: var(--color-theme);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  width: 108%;
+  border-style: solid;
+}
+.gg {
+  display: block;
+  color: var(--color-theme);
+  background-color: var(--color-white);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  width: 355px;
+  border-style: solid;
+  border-color: var(--color-theme);
+}
+.gg:hover {
+  background-color: var(--color-theme);
+  color: var(--color-white);
+}
+.fb {
+  display: block;
+  color: var(--color-theme);
+  background-color: var(--color-white);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  width: 355px;
+  border-style: solid;
+  border-color: var(--color-theme);
+}
+.fb:hover {
+  background-color: var(--color-theme);
+  color: var(--color-white);
+}
+.icon {
+  position: absolute;
+  left: 5px;
+  padding: 13px;
+  min-width: 40px;
+  color: var(--color-theme-light);
+}
+.or {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  margin-left: 20px;
+}
+.signin {
+  font-size: 20px;
+  color: var(--color-theme-dark);
+  text-decoration: none;
+}
+.account {
+  margin-top: 20px;
+}
+.forgotpassword {
+  text-decoration: none;
+  color: var(--color-black);
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.error {
+  color: var(--color-red);
+  margin-bottom: 0px;
+}

@@ -1,0 +1,124 @@
+.navbar {
+  background-color: var(--color-theme);
+}
+
+.tab {
+  color: var(--color-white) !important;
+  font-size: 20px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  display: block !important;
+  text-decoration: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.tab :global(.nav-link) {
+  padding: 0rem !important;
+}
+
+.tab_name:hover {
+  opacity: 0.6;
+}
+
+.tab :global(.dropdown-toggle:hover) {
+  opacity: 0.6;
+}
+
+:global(.dropdown-menu > .dropdown-item:active) {
+  background-color: var(--color-theme);
+}
+
+.nav_brand {
+  color: var(--color-white) !important;
+  font-size: 25px;
+}
+
+.search:focus {
+  text-align: left;
+  border-color: var(--color-theme-light) !important;
+  box-shadow: 0 0 0 .25rem var(--color-theme-light) !important;
+}
+
+.dropbtn {
+  background-color: var(--color-white) !important;
+  color: var(--color-theme) !important;
+  border: none !important;
+  cursor: pointer !important;
+  border-radius: 50px;
+  box-shadow: 0 0 0 0rem !important;
+}
+
+.dropdown_toggle::after {
+  content: none !important;
+  background-color: none !important;
+}
+
+.dropdown_container {
+  width: 450px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 600px) {
+  .dropdown_container {
+    width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dropdown_container[data-bs-popper]{
+    right: 0 !important;
+    left: -200px !important;
+  }
+}
+
+.noti_button {
+  background-color: var(--color-white) !important;
+  color: var(--color-theme) !important;
+  border: none !important;
+  cursor: pointer !important;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0rem !important;
+}
+
+.noti_icon {
+  width: 30px;
+  height: 30px;
+}
+
+.dropbtn:hover {
+  color: var(--color-theme);
+  opacity: 0.9;
+}
+
+.tab :global(.nav-link) {
+  color: var(--color-white) !important;
+}
+
+.icon_btn {
+  background-color: var(--color-theme) !important;
+  border-color: var(--color-theme) !important;
+  border: none;
+  box-shadow: 0 0 0 0rem !important;
+}
+
+.logo {
+  -webkit-backface-visibility: hidden;
+  -ms-transform: translateZ(0);
+  /* IE 9 */
+  -webkit-transform: translateZ(0);
+  /* Chrome, Safari, Opera */
+  transform: translateZ(0);
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  color: rgb(250, 11, 11);
+  font-size: 12px;
+}

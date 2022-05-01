@@ -1,0 +1,39 @@
+.book_icon {
+  color: var(--color-theme);
+  font-size: 70px;
+  height: 70px;
+  width: 70px;
+}
+
+.study_set_name {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 50px;
+  height: 50px;
+  font-weight: bold;
+}
+
+.back_stars {
+  color: #626262;
+  position: relative;
+  justify-content: start;
+}
+
+.front_stars {
+  color: var(--color-star);
+  overflow: hidden;
+  position: absolute;
+}
+
+.rates_icon {
+  font-weight: 600;
+}
+
+.rates_icon:hover {
+  color: var(--color-theme-dark) ;
+  cursor: pointer;
+}
+
+.word_wrap_break {
+  word-wrap: break-word;
+}

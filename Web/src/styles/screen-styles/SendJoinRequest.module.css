@@ -1,0 +1,84 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  color: var(--color-red);
+}
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.title {
+  color: var(--color-theme);
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer .accept_button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modalContainer .footer .decline_button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.text {
+  font-size: 20px;
+}
+.accept_button {
+  background-color: var(--color-theme) !important;
+  border: none;
+  width: 100px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.accept_button:hover {
+  opacity: 0.6;
+}
+.decline_button {
+  background-color: var(--color-blur-text) !important;
+  color: var(--color-white) !important;
+  width: 100px;
+  padding: 5px;
+}
+.decline_button:hover {
+  opacity: 0.6;
+}
+
+.textarea {
+  width: 100%;
+  outline: none;
+}

@@ -1,0 +1,296 @@
+:root {
+    --color-theme: #009387;
+    --color-theme-light: #51c4b7;
+    --color-theme-dark: #00645A;
+    --color-black-text: #252525;
+    --color-blur-text: #9E9E9E;
+    --color-background: #F6F7FB;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-star: #e9ec05;
+    --color-school: #7E7199;
+    --color-subject: #00645A;
+    --color-textbook: #4D77B8;
+    --color-red: red;
+    --color-green: green;
+    --color-cancel: #E5E5E5;
+    --color-delete: #D00A0A;
+}
+
+.App {
+    text-align: center;
+}
+
+.shadow-box {
+    border-radius: 8px;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    color: var(--color-black-text);
+}
+
+.bold-black-text-color {
+    color: var(--color-black-text);
+    font-weight: 650;
+}
+
+.blur-text-color {
+    color: var(--color-blur-text);
+}
+
+.white-text-color {
+    color: var(--color-white);
+}
+
+.background-color {
+    background-color: var(--color-background);
+}
+
+.theme-text-color {
+    color: var(--color-theme);
+    font-weight: bold;
+}
+
+.error-text-color {
+    color: var(--color-red)
+}
+
+.correct-text-color {
+    color: var(--color-green)
+}
+
+.theme-background-color {
+    background-color: var(--color-theme);
+}
+
+.white-background-color {
+    background-color: var(--color-white);
+}
+
+.white-background-color-clickable {
+    background-color: var(--color-white);
+    border: 2px solid transparent;
+}
+
+.white-background-color-clickable:hover {
+    border: var(--color-theme) 2px solid;
+    cursor: pointer;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.star-color {
+    color: var(--color-star);
+}
+
+.school-color {
+    background-color: var(--color-school);
+}
+
+.textbook-color {
+    background-color: var(--color-textbook) !important;
+}
+
+.subject-color {
+    background-color: var(--color-subject) !important;
+}
+
+.tag-style {
+    padding: 5px 6px 5px 6px;
+    border-radius: 2px;
+    color: var(--color-white);
+}
+
+.under-line-input {
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid var(--color-black) !important;
+    box-shadow: none !important;
+}
+
+/* Custom Mui */
+
+/* .MuiAutocomplete-root{
+    border: var(--color-theme) 2px solid;
+} */
+
+.MuiInput-root:before{
+    border-bottom: 1px black solid !important;
+}
+
+.MuiInput-root:hover:not(.Mui-disabled):before{
+    border-bottom: 1px black solid !important;
+}
+
+.MuiInput-root::after{
+    border-bottom: 1px var(--color-theme) solid !important;
+}
+
+.MuiInput-underline:focus{
+    border: var(--color-theme) !important;
+    outline: var(--color-theme) !important;
+}
+
+.MuiAutocomplete-inputRoot::before {
+    border-bottom: none;
+}
+
+.MuiAutocomplete-inputRoot::before:hover {
+    border-bottom: none;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: var(--color-theme) !important;
+}
+
+.MuiOutlinedInput-notchedOutline:hover {
+    border-color: var(--color-theme) !important;
+}
+
+.MuiOutlinedInput-notchedOutline:focus {
+    border-color: var(--color-theme) !important;
+}
+
+.MuiInputLabel-outlined.Mui-focused {
+    color: var(--color-theme) !important;
+}
+
+.MuiInputLabel-root {
+    color: var(--color-theme) !important;
+}
+
+.MuiCircularProgress-circle {
+    color: var(--color-theme);
+}
+
+.MuiSvgIcon-root {
+    color: var(--color-theme) !important
+}
+
+.MuiChip-deleteIcon {
+    color: var(--color-white) !important
+}
+
+.MuiDivider-root::after {
+    border-top: thin solid var(--color-theme) !important;
+    width: 100% !important;
+}
+
+.MuiDivider-root::before {
+    width: 0px !important;
+}
+
+.MuiDivider-wrapper {
+    margin-bottom: .25em;
+}
+
+.MuiOutlinedInput-root {
+    background-color: var(--color-white);
+}
+
+.MuiLinearProgress-bar {
+    background-color: var(--color-theme) !important;
+}
+
+.MuiLinearProgress-root {
+    background-color: #c8ecdb !important;
+}
+
+.MuiSlider-track {
+    background-color: var(--color-theme) !important;
+    border-color: var(--color-theme) !important;
+}
+
+.MuiSlider-thumb {
+    background-color: var(--color-theme) !important;
+}
+
+.MuiSlider-rail {
+    background-color: var(--color-theme) !important;
+}
+
+/* Custom Bootstrap */
+
+.tooltip>div.tooltip-inner {
+    background-color: var(--color-theme) !important;
+    color: var(--color-white) !important;
+}
+
+.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--color-theme) !important;
+    color: var(--color-theme) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.1rem var(--color-theme-dark) !important;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.paragraphs {
+    white-space: pre-wrap;
+}
+
+/* Font Size */
+
+.big-font {
+    font-size: 20px;
+}
+
+.huge-font {
+    font-size: 24px;
+}
+
+.giant-font {
+    font-size: 28px;
+}
+
+.text-over-flow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Format scroll */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+.icon-color {
+    color: var(--color-theme);
+}
+
+canvas:hover{
+    cursor: default !important;
+}
