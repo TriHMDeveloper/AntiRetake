@@ -8,6 +8,6 @@ Frontend: ReactJs
 
 Framework: Redux
 
-Database: MongoDB
+Database: MongoDB, Firebase
 
 Deploy: Docker
